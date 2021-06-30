@@ -1,5 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+
 
 import Home from './pages/Home';
 import NewRoom from './pages/NewRoom';
@@ -13,6 +15,7 @@ function App() {
 
   return (
     <div className="App">
+      <Toaster  position="top-right" reverseOrder={false}/>
       <AuthContextProvider >
       <BrowserRouter>
       <Switch>

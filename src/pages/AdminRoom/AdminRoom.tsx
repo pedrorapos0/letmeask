@@ -1,3 +1,4 @@
+import React from 'react';
 import { useHistory, useParams } from 'react-router-dom'
 
 import logoImg from '../../assets/images/logo.svg';
@@ -13,11 +14,12 @@ import { database } from '../../services/firebase';
 
 import '../../styles/room.scss';
 
+
 type RoomParams = {
   id: string;
 }
 
-export function AdminRoom() {
+export const AdminRoom: React.FC = () => {
   
   const history = useHistory()
   const params = useParams<RoomParams>();
@@ -34,6 +36,7 @@ export function AdminRoom() {
   }
 
   async function handleDeleteQuestion(questionId: string) {
+   
     if (window.confirm('Tem certeza que você deseja excluir esta pergunta?')) {
       await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
     }
